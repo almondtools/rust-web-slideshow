@@ -2,7 +2,20 @@
 
 A comparison of Rust web app libraries using a simple slideshow as an example.
 
-## Dioxus (dye•ox•us)
+
+## Backend
+
+To start the backend use the IntelliJ run configuration or `cargo run --bin backend`.
+
+## Sdk
+
+The glue to make sure frontend and backend are compatible.
+
+
+## Libraries
+
+
+### Dioxus (dye•ox•us)
 
 [Website](https://dioxuslabs.com/)
 
