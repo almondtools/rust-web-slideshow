@@ -3,7 +3,6 @@ use sdk::slide::{Slide, Slides};
 
 #[get("/slides", format = "json")]
 pub async fn get_slides() -> Json<Slides> {
-    println!("sending ");
     Json(vec![
         Slide {
             number: 1,
