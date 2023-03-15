@@ -1,4 +1,4 @@
-use crate::util::style::use_style;
+use crate::style::use_style;
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]

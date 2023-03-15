@@ -17,6 +17,8 @@ The glue to make sure frontend and backend are compatible.
 
 ### Dioxus (dye•ox•us)
 
+To start the dioxus frontend use `dioxus serve --port 8081`. Then browse to http://localhost:8081
+
 [Website](https://dioxuslabs.com/)
 
 [dioxus-app](https://github.com/patrick-dedication/rust-web-slideshow/tree/main/dioxus-app)
@@ -40,3 +42,7 @@ The glue to make sure frontend and backend are compatible.
 
 - not fully mature yet
 - heavy reliance on Procedural Macros
+
+### Sycamore
+
+To start the sycamore frontend use `trunk serve --port 8082`. Then browse to http://localhost:8082

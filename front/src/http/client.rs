@@ -1,6 +1,8 @@
 use super::response::http_response_from;
 use async_trait::async_trait;
-use sdk::http::{GetRequest, HttpClient, HttpHeaders, HttpResponse};
+use sdk::http::header::Accept;
+use sdk::http::{GetRequest, HttpClient, HttpHeaders, HttpResponse, HttpStatus};
+use sdk::slide::Slides;
 use wasm_bindgen::JsCast;
 use wasm_bindgen_futures::JsFuture;
 use web_sys::{Request, RequestInit, RequestMode, Response};
@@ -33,6 +35,20 @@ impl FetchHttpClient {
 
         fetch(&request).await
     }
+
+    pub async fn get_slides(&self) -> Slides {
+        let request = GetRequest::to("/slides").with_header(Accept::JSON);
+        let response = self.get(&request).await;
+    
+        match response.status {
+            HttpStatus::Ok => {
+                let body: Vec<u8> = response.body.expect("Expect get slides to return body");
+                serde_json::from_slice(body.as_slice()).unwrap()
+            }
+            status => panic!("Get Slides returned unhandled status code='{:?}'", status),
+        }
+    }
+    
 }
 
 #[async_trait(?Send)]
